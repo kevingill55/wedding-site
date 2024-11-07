@@ -1,3 +1,4 @@
+import React from "react";
 import { Nav, Frame } from "../components";
 
 export const Home = () => {

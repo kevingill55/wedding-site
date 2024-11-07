@@ -1,3 +1,6 @@
+import React from "react";
+import { PropTypes } from "prop-types";
+
 export const Frame = ({ children }) => {
   return (
     <div className="flex flex-col h-full justify-between">
@@ -10,4 +13,11 @@ export const Frame = ({ children }) => {
       </div>
     </div>
   );
+};
+
+Frame.propTypes = {
+  children: PropTypes.oneOfType([
+    PropTypes.arrayOf(PropTypes.node),
+    PropTypes.node,
+  ]).isRequired,
 };

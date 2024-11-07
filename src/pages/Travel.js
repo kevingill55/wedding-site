@@ -1,3 +1,5 @@
+/* eslint-disable react/no-unescaped-entities */
+import React from "react";
 import { Nav, Frame } from "../components";
 
 export const Travel = () => {

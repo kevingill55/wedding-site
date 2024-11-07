@@ -1,3 +1,5 @@
+import React from "react";
+import { PropTypes } from "prop-types";
 import { useNavigate, useMatch } from "react-router-dom";
 
 const NavItem = ({ label }) => {
@@ -14,6 +16,10 @@ const NavItem = ({ label }) => {
       {label}
     </div>
   );
+};
+
+NavItem.propTypes = {
+  label: PropTypes.string.isRequired,
 };
 
 export const Nav = () => {
