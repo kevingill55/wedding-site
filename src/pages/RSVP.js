@@ -137,7 +137,7 @@ export const RSVP = () => {
       <div className="bg-[#C9E7DF] h-2/3">
         <div className="h-full text-end flex justify-end items-end pr-3">
           <div>
-            <form className="flex flex-col gap-10 py-2">
+            <form className="flex flex-col gap-6 py-2">
               <div className="flex flex-col gap-2 items-end">
                 <label htmlFor="enter-code-input" className="font-ROM">
                   ENTER CODE

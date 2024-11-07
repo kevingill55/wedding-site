@@ -5,7 +5,7 @@ import { Nav, Frame } from "../components";
 export const Travel = () => {
   return (
     <Frame>
-      <div className="bg-[#C9E7DF] h-4/5 overflow-auto">
+      <div className="bg-[#C9E7DF] h-3/4 overflow-auto">
         <div className="h-full pl-3 flex flex-col gap-6 max-w-[1000px]">
           <div>
             <div className="font-ROM">WHEN AND WHERE IS THE WEDDING?</div>
@@ -94,7 +94,7 @@ export const Travel = () => {
           </div>
         </div>
       </div>
-      <div className="flex h-1/5">
+      <div className="flex h-1/4">
         <div className="bg-[#C8E2FD] w-full h-full"></div>
         <Nav />
       </div>
