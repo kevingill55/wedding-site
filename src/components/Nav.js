@@ -11,7 +11,7 @@ const NavItem = ({ label }) => {
       onClick={() =>
         navigate(`/${lowerCasedLabel === "home" ? "" : lowerCasedLabel}`)
       }
-      className={`cursor-pointer text-sm ${active && "underline"}`}
+      className={`cursor-pointer ${active && "underline"}`}
     >
       {label}
     </div>

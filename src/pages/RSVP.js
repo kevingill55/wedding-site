@@ -134,7 +134,7 @@ export const RSVP = () => {
 
   return (
     <Frame>
-      <div className="bg-[#C9E7DF] h-2/3 text-sm">
+      <div className="bg-[#C9E7DF] h-2/3">
         <div className="h-full text-end flex justify-end items-end pr-3">
           <div>
             <form className="flex flex-col gap-10 py-2">
