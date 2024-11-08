@@ -7,8 +7,8 @@ const dynamodb = new aws.DynamoDB({
   apiVersion: "2012-08-10",
   region: "us-east-1",
   credentials: {
-    secretAccessKey: "3RA7E/kfknonhzb85IyNOCZNDPnT084hFbr0DJwz",
-    accessKeyId: "AKIA3IKVF6LPF55PH3NA",
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_KEY_PROD,
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_PROD,
   },
 });
 
