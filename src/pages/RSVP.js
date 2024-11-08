@@ -3,6 +3,8 @@ import { PropTypes } from "prop-types";
 import aws from "aws-sdk";
 import { Nav, Frame } from "../components";
 
+const CODE_SUFFIX = "kg2025";
+
 const dynamodb = new aws.DynamoDB({
   apiVersion: "2012-08-10",
   region: "us-east-1",
@@ -60,12 +62,10 @@ export const RSVP = () => {
     const formattedCode = code.trim().toLowerCase();
     const splitCode = formattedCode.split("@");
     if (splitCode.length !== 2) {
-      console.log("not 2");
       setError("Invalid code");
       return;
     } else {
-      if (splitCode[1] !== "kk2025") {
-        console.log("not kk");
+      if (splitCode[1] !== CODE_SUFFIX) {
         setError("Invalid code");
         setIsSubmitting(false);
         return;
@@ -142,7 +142,7 @@ export const RSVP = () => {
                 <label htmlFor="enter-code-input" className="font-ROM">
                   ENTER CODE
                 </label>
-                <div className="md:w-2/3">
+                <div className="w-4/5">
                   <input
                     className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#E3D2DA]"
                     id="enter-code-input"
