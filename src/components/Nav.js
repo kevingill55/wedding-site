@@ -27,7 +27,7 @@ export const Nav = () => {
     <div className="bg-[#E3D2DA] items-end justify-end pb-3 px-3 w-full h-full flex flex-col gap-1">
       <NavItem label="HOME" />
       <NavItem label="SCHEDULE" />
-      <NavItem label="TRAVEL" />
+      <NavItem label="DETAILS" />
       <NavItem label="RSVP" />
     </div>
   );

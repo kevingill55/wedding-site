@@ -2,7 +2,7 @@
 import React from "react";
 import { Nav, Frame } from "../components";
 
-export const Travel = () => {
+export const Details = () => {
   return (
     <Frame>
       <div className="bg-[#C9E7DF] h-3/4 overflow-auto">
@@ -101,37 +101,3 @@ export const Travel = () => {
     </Frame>
   );
 };
-
-// import { AppBar } from "../components";
-
-// export const Travel = () => {
-//   return (
-//     <div className="px-2 bg-[#E3C7BC] h-full overflow-auto">
-//       <AppBar />
-//       <div className="w-full flex justify-center">
-//         <div className="py-4 flex flex-col gap-4 mt-2 mb-4 max-w-[1000px] border-y-alt border-dotted border-y-2 ">
-
-//           <div className="flex flex-col px-2">
-//             <div className="text-main">Can I bring my kids?</div>
-//             <div>
-// We love all of our nieces and nephews very much but unfortunately
-// we will not be able to fit them at the inn. As it's not always
-// possible to leave them behind, please let us know if you plan on
-// bringing them with you to the Catskills and we'll work out the
-// logistics together.
-//             </div>
-//           </div>
-
-//           <div className="flex flex-col px-2">
-//             <div className="text-main">Can I bring a +1?</div>
-//             <div>
-// Due to the intimate nature of this wedding and limited space
-// available we ask that you please not bring anyone who wasn't
-// explicitly invited.
-//             </div>
-//           </div>
-//         </div>
-//       </div>
-//     </div>
-//   );
-// };
