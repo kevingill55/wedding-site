@@ -15,6 +15,7 @@ export const Schedule = () => {
           <div>
             <div className="font-ROM">SAT NOV 8</div>
             <div>8:00-10:00 AM BREAKFAST</div>
+            <div>~12:00 PM LUNCH</div>
             <div>4:00-11:00 PM WEDDING FESTIVITIES</div>
           </div>
 

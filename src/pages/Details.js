@@ -5,10 +5,12 @@ import { Nav, Frame } from "../components";
 export const Details = () => {
   return (
     <Frame>
-      <div className="bg-[#C9E7DF] h-3/4 overflow-auto">
-        <div className="h-full pl-3 flex flex-col gap-6 max-w-[1000px]">
+      <div className="bg-[#C9E7DF] h-[80%] overflow-auto">
+        <div className="h-full sm:p-6 p-3 flex flex-col gap-6 max-w-[1000px]">
           <div>
-            <div className="font-ROM">WHEN AND WHERE IS THE WEDDING?</div>
+            <div className="mb-1 text-lg font-ROM">
+              WHEN AND WHERE IS THE WEDDING?
+            </div>
             <div>
               The wedding will take place in the Catskills at{" "}
               <a
@@ -26,66 +28,57 @@ export const Details = () => {
           </div>
 
           <div>
-            <div className="font-ROM">WHERE WILL I STAY?</div>
+            <div className="font-ROM mb-1 text-lg">WHERE WILL I STAY?</div>
             <div>
-              Foxfire has enough accommodations for nearly all of our guests. In
-              order for us to organize accordingly, please let us know if you
-              plan to stay on or off property as soon as possible.
+              Foxfire (the venue) has enough accommodations for the majority of
+              our guests and is where all the wedding activities will take
+              place. One double-occupancy room will cost $700 for the weekend.
+              This includes 2 nights stay, all food and beverage, and lots of
+              quality time with friends and family. If you stay at the venue you
+              also won't have to worry about transportation and getting around.
+              Although, we don't recommend it for the majority of our guests, if
+              you have a strong desire to stay off property please let us know
+              as soon as possible! <br /> <b>Note: </b> Once we have a final
+              headcount, we will give the venue our guest list and room
+              assignments and they will send an invoice for the room personally
+              to you. Meaning, if you RSVP that you are attending and plan to
+              stay at the venue, you don't need to worry about anything else.
             </div>
           </div>
 
           <div>
-            <div className="font-ROM">WHY WOULDN'T I STAY AT FOXFIRE?</div>
+            <div className="font-ROM mb-1 text-lg">HOW DO I CHECK-IN?</div>
             <div>
-              Foxfire is a quaint, gorgeous property but it might not be the
-              perfect accommodations for everyone. Each room is double-occupancy
-              only with no cots available. Additionally, the celebration takes
-              place at the inn and if you only want to partake for a short
-              period of time, you may prefer to stay someplace else. If you
-              would like to stay off property, we can give you recommendations
-              close by.
+              On Friday, November 7th, when you arrive to check-in, please head
+              inside the inn (big white building) and to the lobby where us and
+              the staff at Foxfire will greet you and get you on your way.
             </div>
           </div>
 
           <div>
-            <div className="font-ROM">HOW MUCH WILL IT COST?</div>
-            <div>
-              One double-occupancy room at Foxfire will cost around $700 for the
-              weekend. This includes 2 nights stay, all meals and lots of
-              quality time with friends and family. If you plan to stay on
-              property, you will not book directly through Foxfire. Once we get
-              a final headcount, we'll send the confirmed guest list to Foxfire,
-              and they will send you an invoice.
-            </div>
-          </div>
-
-          <div>
-            <div className="font-ROM">
-              WHAT IS THE DRESS CODE AND WHAT DO I NEED TO BRING?
-            </div>
+            <div className="mb-1 text-lg font-ROM">WHAT IS THE DRESS CODE?</div>
             <div>
               The dress code for the wedding day is semi-formal and other than
               that we want all of our guests to be as comfortable as possible.
               Keep in mind that this will be November in the Catskills and to
-              please check the weather closer to the event. Most, if not all, of
-              the events will take place inside.
+              please check the weather closer to the event. However, most, if
+              not all, of the events will take place inside.
             </div>
           </div>
 
           <div>
-            <div className="font-ROM">CAN MY KIDS COME?</div>
+            <div className="font-ROM mb-1 text-lg">CAN MY KIDS COME?</div>
             <div>
-              We love all of our nieces and nephews very much. Unfortunately,
-              Foxfire can only accommodate a certain number of guests,
-              particularly with regards to lodging and seated dinners. If you'd
-              like a weekend without your kids and can arrange for child care,
-              that's great, if not let's figure out the logistics together as we
-              would also love to spend quality time with you and your kids.
+              As much as we love and adore all of our nieces and nephews,
+              unfortunately, we will not be able to accommodate them during this
+              weekend. We understand the complications with traveling and child
+              care so please reach out to either of us, if necessary, to talk
+              about this further.
             </div>
           </div>
 
           <div>
-            <div className="font-ROM">CAN I BRING A +1?</div>
+            <div className="font-ROM mb-1 text-lg">CAN I BRING A +1?</div>
             <div>
               Due to the intimate nature of this wedding and limited space
               available we ask that you please not bring anyone who wasn't

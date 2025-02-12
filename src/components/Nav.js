@@ -5,12 +5,10 @@ import { useNavigate, useMatch } from "react-router-dom";
 const NavItem = ({ label }) => {
   const lowerCasedLabel = label.toLowerCase();
   const navigate = useNavigate();
-  const active = useMatch(lowerCasedLabel === "home" ? "" : lowerCasedLabel);
+  const active = useMatch(lowerCasedLabel);
   return (
     <div
-      onClick={() =>
-        navigate(`/${lowerCasedLabel === "home" ? "" : lowerCasedLabel}`)
-      }
+      onClick={() => navigate(`/${lowerCasedLabel}`)}
       className={`cursor-pointer ${active && "underline"}`}
     >
       {label}
