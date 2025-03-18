@@ -1,28 +1,29 @@
 import React from "react";
-import { Frame } from "../components";
-// import kk from "../images/kk.jpeg";
-// import cute from "../images/cute.jpeg";
-// import hammock from "../images/hammock.jpeg";
-
+import { NavV2 } from "../components/Nav";
 export const Landing = () => {
   return (
-    <Frame>
-      {/* <div className="h-full w-full bg-slate-100"></div> */}
-      {/* <div className="w-full bg-[#C9E7DF] overflow-hidden h-full">
-        <div className="flex-col justify-between items-center h-full">
-          <div className="pl-2 sm:pl-0 w-full h-1/2 flex justify-start items-center">
-            <img src={hammock} alt="hammock" className="h-[90%]" />
+    <div className="h-full w-full flex flex-col items-center">
+      {/* <div className="flex sm:max-w-[1000px] justify-center w-full flex-col sm:flex-row gap-4 sm:my-12 mt-6">
+        <div className="flex justify-center w-full h-full">
+          <div className="bg-[#6B3E26] p-3 w-fit sm:mb-0 mb-2">
+            <img
+              src={fire}
+              alt="fire"
+              className="sm:max-w-2xl sm:h-full h-[200px]"
+            />
           </div>
-          <div className="w-full h-1/2 flex items-center">
-            <div className="bg-[#C8E2FD] h-full sm:flex pr-12 items-center justify-end w-1/2 hidden">
-              <img src={kk} alt="kk" className="h-[90%]" />
-            </div>
-            <div className="bg-[#E3D2DA] flex sm:justify-start justify-end sm:pl-12 pr-2 items-center h-full w-full sm:w-1/2">
-              <img src={cute} alt="cute" className="h-[90%]" />
-            </div>
+        </div>
+        <div className="w-full justify-center flex">
+          <div className="bg-[#6B3E26] w-fit p-3">
+            <img
+              src={fox}
+              alt="fox"
+              className="sm:max-w-2xl sm:h-full h-[200px]"
+            />
           </div>
         </div>
       </div> */}
-    </Frame>
+      <NavV2 />
+    </div>
   );
 };

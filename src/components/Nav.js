@@ -5,7 +5,7 @@ import { useNavigate, useMatch } from "react-router-dom";
 export const NavV2 = ({ menuRef, subtitleRef, titleRef }) => {
   const navigate = useNavigate();
   return (
-    <div className="sm:max-w-[1455px] flex h-full justify-center gap-20 sm:gap-28 items-center w-full p-4 text-[#4b3832]">
+    <div className="sm:max-w-[1455px] max-h-2/3 flex justify-center gap-10 sm:gap-28 items-center w-full mb-4 p-4 text-[#4b3832]">
       <div
         className="text-[#4b3832] flex justify-center flex-col items-center gap-1"
         ref={menuRef}
@@ -39,21 +39,11 @@ export const BasicNav = () => {
   const rsvpActive = useMatch("rsvp");
   const navContainerRef = useRef();
 
-  // const defaultTimeline = gsap.timeline({ defaults: { duration: 2 } });
-
-  // useGSAP(() => {
-  //   defaultTimeline.fromTo(
-  //     navContainerRef.current,
-  //     { y: window.innerHeight / 2 },
-  //     { x: 0, y: 0, duration: 2, delay: 1 }
-  //   );
-  // });
-
   return (
     <div
       ref={navContainerRef}
       id="basic-nav-component"
-      className="flex w-[90%] items-center fixed sm:justify-center justify-evenly sm:gap-28 gap-6 p-4 bg-accent"
+      className="flex w-[90%] items-center fixed sm:justify-center justify-evenly sm:gap-28 gap-4 px-1 py-3 bg-accent"
     >
       <div className="flex text-secondary justify-center items-center gap-4">
         <div
