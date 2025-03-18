@@ -1,18 +1,64 @@
-import React from "react";
-import { Frame, Nav } from "../components";
+import React, { useRef } from "react";
+import gsap from "gsap";
+import { useGSAP } from "@gsap/react";
+
+import { NavV2 } from "../components/Nav";
+import fox from "../images/fox1.jpeg";
+import fire from "../images/foxfire1.jpeg";
+
+gsap.registerPlugin(useGSAP);
 
 export const Home = () => {
+  const titleRef = useRef();
+  const subtitleRef = useRef();
+  const pictureRef = useRef();
+  const pictureRef2 = useRef();
+  const menuRef = useRef();
+
+  const defaultTimeline = gsap.timeline({ defaults: { duration: 2 } });
+  const defaultTimeline2 = gsap.timeline({ defaults: { duration: 2 } });
+
+  useGSAP(() => {
+    defaultTimeline
+      .fromTo(titleRef.current, { opacity: 0, x: "-90%" }, { opacity: 1 })
+      .to(titleRef.current, { x: 0 })
+      .fromTo(pictureRef.current, { opacity: 0 }, { opacity: 1 });
+  });
+
+  useGSAP(() => {
+    defaultTimeline2
+      .fromTo(
+        subtitleRef.current,
+        { x: "90%", opacity: 0 },
+        { x: 0, opacity: 1, delay: 2 }
+      )
+      .fromTo(pictureRef2.current, { opacity: 0 }, { opacity: 1 })
+      .fromTo(menuRef.current, { opacity: 0 }, { opacity: 1, duration: 1 });
+  });
+
   return (
-    <Frame>
-      <div className="bg-[#C9E7DF] h-2/5">
-        <div className="h-full text-end flex justify-end items-end pr-3">
-          AN INTIMATE WEDDING IN UPSTATE NEW YORK
+    <div className="h-full w-full flex flex-col items-center sm:justify-start justify-between bg-[#FDF5C9]">
+      <div className="flex sm:max-w-[1000px] justify-center w-full flex-col sm:flex-row gap-4 sm:my-12 mt-6">
+        <div className="flex justify-center w-full h-full">
+          <div ref={pictureRef} className="bg-[#6B3E26] p-3 w-fit sm:mb-0 mb-2">
+            <img
+              src={fire}
+              alt="fire"
+              className="sm:max-w-2xl sm:h-full h-[200px]"
+            />
+          </div>
+        </div>
+        <div className="w-full justify-center flex">
+          <div ref={pictureRef2} className="bg-[#6B3E26] w-fit p-3">
+            <img
+              src={fox}
+              alt="fox"
+              className="sm:max-w-2xl sm:h-full h-[200px]"
+            />
+          </div>
         </div>
       </div>
-      <div className="flex h-3/5">
-        <div className="bg-[#C8E2FD] overflow-hidden w-full h-full"></div>
-        <Nav />
-      </div>
-    </Frame>
+      <NavV2 menuRef={menuRef} titleRef={titleRef} subtitleRef={subtitleRef} />
+    </div>
   );
 };

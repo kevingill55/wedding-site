@@ -8,6 +8,10 @@ module.exports = {
         ROMLight: ["ROMLight"],
       },
       colors: {
+        secondary: "#4b3832",
+        accent: "#FDF5C9",
+        accentTwo: "#fbffc0",
+        primary: "#6B3E26",
         main2: "#302680",
         main: "#215BDF",
         oldMain: "#BA522D",

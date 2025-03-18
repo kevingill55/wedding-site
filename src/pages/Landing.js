@@ -1,13 +1,14 @@
 import React from "react";
 import { Frame } from "../components";
-import kk from "../images/kk.jpeg";
-import cute from "../images/cute.jpeg";
-import hammock from "../images/hammock.jpeg";
+// import kk from "../images/kk.jpeg";
+// import cute from "../images/cute.jpeg";
+// import hammock from "../images/hammock.jpeg";
 
 export const Landing = () => {
   return (
     <Frame>
-      <div className="w-full bg-[#C9E7DF] overflow-hidden h-full">
+      {/* <div className="h-full w-full bg-slate-100"></div> */}
+      {/* <div className="w-full bg-[#C9E7DF] overflow-hidden h-full">
         <div className="flex-col justify-between items-center h-full">
           <div className="pl-2 sm:pl-0 w-full h-1/2 flex justify-start items-center">
             <img src={hammock} alt="hammock" className="h-[90%]" />
@@ -21,7 +22,7 @@ export const Landing = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
     </Frame>
   );
 };

@@ -1,7 +1,7 @@
 import React, { useCallback, useState } from "react";
 import { PropTypes } from "prop-types";
 import aws from "aws-sdk";
-import { Nav, Frame } from "../components";
+import { Frame } from "../components";
 
 const CODE_SUFFIX = "kg2025";
 
@@ -245,7 +245,6 @@ export const RSVP = () => {
       </div>
       <div className="flex h-1/3">
         <div className="bg-[#C8E2FD] w-full h-full"></div>
-        <Nav />
       </div>
     </Frame>
   );
