@@ -3,8 +3,9 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import { NavV2 } from "../components/Nav";
+import chair from "../images/chair.jpg";
 import fox from "../images/fox1.jpeg";
-import fire from "../images/foxfire1.jpeg";
+// import fire from "../images/foxfire1.jpeg";
 
 gsap.registerPlugin(useGSAP);
 
@@ -38,22 +39,25 @@ export const Home = () => {
 
   return (
     <div className="h-full w-full flex flex-col items-center sm:justify-start justify-between bg-[#FDF5C9]">
-      <div className="flex sm:max-w-[1000px] justify-center w-full flex-col sm:flex-row sm:gap-4 gap-2 sm:my-10 mt-8 h-2/3">
+      <div className="flex sm:max-w-[1000px] justify-center w-full flex-col sm:flex-row sm:gap-4 gap-2 sm:my-10 mt-6 sm:h-fit h-2/3">
         <div className="flex justify-center w-full">
-          <div ref={pictureRef} className="bg-[#6B3E26] p-3 w-fit sm:mb-0 mb-2">
+          <div
+            ref={pictureRef}
+            className="bg-[#6B3E26] sm:p-3 p-2 w-fit sm:mb-0 mb-2"
+          >
             <img
-              src={fire}
+              src={chair}
               alt="fire"
-              className="sm:max-w-2xl sm:h-full h-[200px]"
+              className="sm:max-w-2xl sm:h-fit h-[235px]"
             />
           </div>
         </div>
         <div className="w-full justify-center flex">
-          <div ref={pictureRef2} className="bg-[#6B3E26] w-fit p-3">
+          <div ref={pictureRef2} className="bg-[#6B3E26] w-fit sm:p-3 p-2">
             <img
               src={fox}
               alt="fox"
-              className="sm:max-w-2xl sm:h-full h-[200px]"
+              className="sm:max-w-2xl sm:h-fit h-[235px]"
             />
           </div>
         </div>

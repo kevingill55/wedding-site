@@ -2,16 +2,6 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "ROM";
-  src: url("fonts/ABCROM-Regular-Trial.otf") format('opentype');
-}
-
-@font-face {
-  font-family: "ROMLight";
-  src: url("fonts/ABCROM-Light-Trial.otf") format('opentype');
-}
-
 html, body {
   height: 100%;
   margin: 0;

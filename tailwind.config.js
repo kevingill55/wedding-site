@@ -3,10 +3,6 @@ module.exports = {
   content: ["./src/**/*.{js,ts,jsx,tsx}", "./src/*.{js,ts,jsx,tsx}"],
   theme: {
     extend: {
-      fontFamily: {
-        ROM: ["ROM"],
-        ROMLight: ["ROMLight"],
-      },
       colors: {
         secondary: "#4b3832",
         accent: "#FDF5C9",

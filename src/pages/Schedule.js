@@ -1,7 +1,6 @@
 import React from "react";
 import { BasicNav } from "../components/Nav";
 import hammock from "../images/hammock.jpeg";
-import vtwedding from "../images/vtwedding.jpg";
 import kk from "../images/kk.jpeg";
 
 export const Schedule = () => {
@@ -35,9 +34,6 @@ export const Schedule = () => {
         <div className="flex flex-col gap-4 sm:w-1/2  ">
           <div className="bg-[#6B3E26] p-3 flex justify-center">
             <img src={hammock} alt="hammock" />
-          </div>
-          <div className="bg-[#6B3E26] p-3 flex justify-center sm:hidden">
-            <img src={vtwedding} alt="vtwedding" />
           </div>
           <div className="bg-[#6B3E26] p-3 flex justify-center">
             <img src={kk} alt="kk" />

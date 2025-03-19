@@ -1,18 +1,19 @@
 import React from "react";
+import aws from "aws-sdk";
 import { PropTypes } from "prop-types";
 import { BasicNav } from "../components/Nav";
-// import aws from "aws-sdk";
 
-// const CODE_SUFFIX = "kg2025";
+const CODE_SUFFIX = "kk2025";
+const TABLE_NAME = "kaleighandkevinwedding";
 
-// const dynamodb = new aws.DynamoDB({
-//   apiVersion: "2012-08-10",
-//   region: "us-east-1",
-//   credentials: {
-//     secretAccessKey: process.env.REACT_APP_AWS_SECRET_KEY_PROD,
-//     accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_PROD,
-//   },
-// });
+const dynamodb = new aws.DynamoDB({
+  apiVersion: "2012-08-10",
+  region: "us-east-1",
+  credentials: {
+    secretAccessKey: process.env.REACT_APP_AWS_SECRET_KEY_PROD,
+    accessKeyId: process.env.REACT_APP_AWS_ACCESS_KEY_PROD,
+  },
+});
 
 const RadioButton = ({ label, checked, setFunc, id }) => {
   return (
@@ -44,99 +45,197 @@ RadioButton.propTypes = {
 };
 
 export const RSVP = () => {
-  // const [isSubmitting, setIsSubmitting] = useState(false);
-  // const [code, setCode] = useState("");
-  // const [attend, setAttend] = useState("");
-  // const [stay, setStay] = useState("");
-  // const [error, setError] = useState("");
-  // const [success, setSuccess] = useState(false);
+  const [isSubmitting, setIsSubmitting] = React.useState(false);
+  const [code, setCode] = React.useState("");
+  const [attend, setAttend] = React.useState("");
+  const [stay, setStay] = React.useState("");
+  const [error, setError] = React.useState("");
+  const [success, setSuccess] = React.useState(false);
 
-  // const isSubmitDisabled =
-  //   stay.length === 0 || attend.length === 0 || code.length === 0;
+  const isSubmitDisabled =
+    stay.length === 0 || attend.length === 0 || code.length === 0;
 
-  // const onSubmit = useCallback(() => {
-  //   let item = undefined;
+  const onSubmit = React.useCallback(() => {
+    let item = undefined;
 
-  //   setError("");
-  //   setSuccess(false);
-  //   const formattedCode = code.trim().toLowerCase();
-  //   const splitCode = formattedCode.split("@");
-  //   if (splitCode.length !== 2) {
-  //     setError("Invalid code");
-  //     return;
-  //   } else {
-  //     if (splitCode[1] !== CODE_SUFFIX) {
-  //       setError("Invalid code");
-  //       setIsSubmitting(false);
-  //       return;
-  //     }
+    setError("");
+    setSuccess(false);
+    const formattedCode = code.trim().toLowerCase();
+    const splitCode = formattedCode.split("@");
+    if (splitCode.length !== 2) {
+      setError("Invalid code");
+      return;
+    } else {
+      if (splitCode[1] !== CODE_SUFFIX) {
+        setError("Invalid code");
+        setIsSubmitting(false);
+        return;
+      }
 
-  //     const getItemParams = {
-  //       TableName: "kaleighandkevinwedding",
-  //       Key: {
-  //         id: {
-  //           S: splitCode[0],
-  //         },
-  //       },
-  //     };
+      const getItemParams = {
+        TableName: TABLE_NAME,
+        Key: {
+          id: {
+            S: splitCode[0],
+          },
+        },
+      };
 
-  //     setIsSubmitting(true);
+      setIsSubmitting(true);
 
-  //     dynamodb
-  //       .getItem(getItemParams)
-  //       .promise()
-  //       .then((x) => {
-  //         item = x.$response.data.Item;
-  //         console.log("GetItem successful");
+      dynamodb
+        .getItem(getItemParams)
+        .promise()
+        .then((x) => {
+          item = x.$response.data.Item;
+          console.log("GetItem successful");
 
-  //         if (!item || item.id["S"] !== splitCode[0]) {
-  //           setError("Something went wrong");
-  //           setIsSubmitting(false);
-  //           return;
-  //         }
+          if (!item || item.id["S"] !== splitCode[0]) {
+            setError("Something went wrong");
+            setIsSubmitting(false);
+            return;
+          }
 
-  //         const id = splitCode[0];
+          const id = splitCode[0];
 
-  //         const putItemParams = {
-  //           Item: {
-  //             id: {
-  //               S: id,
-  //             },
-  //             attend: {
-  //               S: attend,
-  //             },
-  //             stay: {
-  //               S: stay,
-  //             },
-  //           },
-  //           TableName: "kaleighandkevinwedding",
-  //         };
+          const putItemParams = {
+            Item: {
+              id: {
+                S: id,
+              },
+              attend: {
+                S: attend,
+              },
+              stay: {
+                S: stay,
+              },
+            },
+            TableName: "kaleighandkevinwedding",
+          };
 
-  //         dynamodb.putItem(putItemParams, (err, data) => {
-  //           if (err) {
-  //             setIsSubmitting(false);
-  //             setError("System error");
-  //             console.log("PutItem error", err);
-  //           } else {
-  //             setIsSubmitting(false);
-  //             setSuccess(true);
-  //             console.log("PutItem successful", data);
-  //           }
-  //         });
-  //       })
-  //       .catch((err) => {
-  //         setIsSubmitting(false);
-  //         setError("Invalid code");
-  //         console.log("GetItem failed", err);
-  //       });
-  //   }
-  // }, [code, attend, stay, error]);
+          dynamodb.putItem(putItemParams, (err, data) => {
+            if (err) {
+              setIsSubmitting(false);
+              setError("System error");
+              console.log("PutItem error", err);
+            } else {
+              setIsSubmitting(false);
+              setSuccess(true);
+              console.log("PutItem successful", data);
+            }
+          });
+        })
+        .catch((err) => {
+          setIsSubmitting(false);
+          setError("Invalid code");
+          console.log("GetItem failed", err);
+        });
+    }
+  }, [code, attend, stay, error]);
 
   return (
     <div className="w-full flex flex-col items-center">
       <BasicNav />
       <div className="text-secondary sm:mt-[125px] mt-[75px] mb-12 sm:max-w-[900px] w-[85%] flex flex-col sm:flex-row sm:gap-10 items-center justify-center">
-        <div>WIP</div>
+        <div className="mb-6 flex flex-col">
+          <div className="pb-1 font-bold text-black w-fit leading-4">
+            Contact us
+          </div>
+          <div className="pl-4 mt-2 border-secondary border-l">
+            <div>kgill505@gmail.com / kgavrilles@gmail.com</div>
+            <div>(508) 734-0101 / (720) 245-5681</div>
+          </div>
+          <div className="pb-1 mt-10 font-bold text-black w-fit leading-4">
+            Enter code
+          </div>
+          <div className="pl-4 mt-2 border-secondary border-l">
+            <input
+              className="bg-gray-100 appearance-none border-2 border-secondary rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
+              id="enter-code-input"
+              type="text"
+              placeholder="Ex: abc123"
+              onChange={(e) => setCode(e.target.value)}
+              value={code}
+            />
+            <div className="text-xs">Provide the code on your invitation!</div>
+          </div>
+          <div className="pb-1 mt-10 font-bold text-black w-fit leading-4">
+            Will you attend the wedding weekend?
+          </div>
+          <div className="pl-4 mt-2 border-secondary border-l">
+            <div className="flex gap-6">
+              <RadioButton
+                setFunc={setAttend}
+                id="attend"
+                label="Yes"
+                checked={attend === "Yes"}
+              />
+              <RadioButton
+                setFunc={setAttend}
+                id="attend"
+                label="No"
+                checked={attend === "No"}
+              />
+            </div>
+          </div>
+          <div className="pb-1 mt-10 font-bold text-black w-fit leading-4">
+            Will you stay at the venue?
+          </div>
+          <div className="pl-4 mt-2 border-secondary border-l">
+            <div className="flex gap-6">
+              <RadioButton
+                setFunc={setStay}
+                id="stay"
+                label="Yes"
+                checked={stay === "Yes"}
+              />
+              <RadioButton
+                setFunc={setStay}
+                id="stay"
+                label="No"
+                checked={stay === "No"}
+              />
+            </div>
+          </div>
+          <div className="mt-4 flex justify-end">
+            <button
+              type="button"
+              disabled={isSubmitDisabled || isSubmitting}
+              onClick={() => {
+                onSubmit();
+              }}
+              className="px-4 py-2 rounded-sm flex justify-end gap-2 shadow-sm font-ROM items-center bg-primary disabled:bg-primary/70 text-accent disabled:cursor-not-allowed"
+            >
+              {isSubmitting && (
+                <div role="status">
+                  <svg
+                    aria-hidden="true"
+                    className="w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+                    viewBox="0 0 100 101"
+                    fill="none"
+                    xmlns="http://www.w3.org/2000/svg"
+                  >
+                    <path
+                      d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+                      fill="currentColor"
+                    />
+                    <path
+                      d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+                      fill="currentFill"
+                    />
+                  </svg>
+                </div>
+              )}
+              {isSubmitting ? "Submitting" : "Submit"}
+            </button>
+          </div>
+          <div className="flex justify-end pt-2 h-[25px]">
+            {error && (
+              <div className="text-sm">{`Failed to RSVP: ${error}`}</div>
+            )}
+            {success && <div>{`Successfully RSVP'd`}</div>}
+          </div>
+        </div>
       </div>
     </div>
     // <Frame>
@@ -149,38 +248,38 @@ export const RSVP = () => {
     //               ENTER CODE
     //             </label>
     //             <div className="w-4/5">
-    //               <input
-    //                 className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#E3D2DA]"
-    //                 id="enter-code-input"
-    //                 type="text"
-    //                 placeholder="CODE"
-    //                 onChange={(e) => setCode(e.target.value)}
-    //                 value={code}
-    //               />
+    // <input
+    //   className="bg-gray-100 appearance-none border-2 border-gray-100 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-[#E3D2DA]"
+    //   id="enter-code-input"
+    //   type="text"
+    //   placeholder="CODE"
+    //   onChange={(e) => setCode(e.target.value)}
+    //   value={code}
+    // />
     //             </div>
     //           </div>
     //           <div className="flex flex-col gap-1 items-end">
-    //             <label className="font-ROM">WILL YOU ATTEND THE WEDDING?</label>
-    //             <div className="flex gap-6">
-    //               <RadioButton
-    //                 setFunc={setAttend}
-    //                 id="attend"
-    //                 label="YES"
-    //                 checked={attend === "YES"}
-    //               />
-    //               <RadioButton
-    //                 setFunc={setAttend}
-    //                 id="attend"
-    //                 label="NO"
-    //                 checked={attend === "NO"}
-    //               />
-    //               <RadioButton
-    //                 setFunc={setAttend}
-    //                 id="attend"
-    //                 label="MAYBE"
-    //                 checked={attend === "MAYBE"}
-    //               />
-    //             </div>
+    //             <label className="font-ROM">WILL YOU stay THE WEDDING?</label>
+    // <div className="flex gap-6">
+    //   <RadioButton
+    //     setFunc={setAttend}
+    //     id="attend"
+    //     label="YES"
+    //     checked={attend === "YES"}
+    //   />
+    //   <RadioButton
+    //     setFunc={setAttend}
+    //     id="attend"
+    //     label="NO"
+    //     checked={attend === "NO"}
+    //   />
+    //   <RadioButton
+    //     setFunc={setAttend}
+    //     id="attend"
+    //     label="MAYBE"
+    //     checked={attend === "MAYBE"}
+    //   />
+    // </div>
     //           </div>
 
     //           <div className="flex flex-col gap-1 items-end">
@@ -210,40 +309,40 @@ export const RSVP = () => {
     //           </div>
 
     //           <div className="flex flex-col items-end">
-    //             <button
-    //               type="button"
-    //               disabled={isSubmitDisabled || isSubmitting}
-    //               onClick={() => {
-    //                 onSubmit();
-    //               }}
-    //               className="px-4 py-2 rounded-xl flex justify-end gap-2 shadow-sm font-ROM items-center bg-white disabled:bg-white/40 disabled:text-gray-400"
-    //             >
-    //               {isSubmitting && (
-    //                 <div role="status">
-    //                   <svg
-    //                     aria-hidden="true"
-    //                     className="w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
-    //                     viewBox="0 0 100 101"
-    //                     fill="none"
-    //                     xmlns="http://www.w3.org/2000/svg"
-    //                   >
-    //                     <path
-    //                       d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
-    //                       fill="currentColor"
-    //                     />
-    //                     <path
-    //                       d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
-    //                       fill="currentFill"
-    //                     />
-    //                   </svg>
-    //                 </div>
-    //               )}
-    //               {isSubmitting ? "SUBMITTING" : "SUBMIT"}
-    //             </button>
-    //             <div className="pt-1 h-[25px]">
-    //               {error && <div>{`Failed to RSVP: ${error}`}</div>}
-    //               {success && <div>{`Successfully RSVP'd`}</div>}
-    //             </div>
+    // <button
+    //   type="button"
+    //   disabled={isSubmitDisabled || isSubmitting}
+    //   onClick={() => {
+    //     onSubmit();
+    //   }}
+    //   className="px-4 py-2 rounded-xl flex justify-end gap-2 shadow-sm font-ROM items-center bg-white disabled:bg-white/40 disabled:text-gray-400"
+    // >
+    //   {isSubmitting && (
+    //     <div role="status">
+    //       <svg
+    //         aria-hidden="true"
+    //         className="w-5 h-5 text-gray-200 animate-spin dark:text-gray-600 fill-blue-600"
+    //         viewBox="0 0 100 101"
+    //         fill="none"
+    //         xmlns="http://www.w3.org/2000/svg"
+    //       >
+    //         <path
+    //           d="M100 50.5908C100 78.2051 77.6142 100.591 50 100.591C22.3858 100.591 0 78.2051 0 50.5908C0 22.9766 22.3858 0.59082 50 0.59082C77.6142 0.59082 100 22.9766 100 50.5908ZM9.08144 50.5908C9.08144 73.1895 27.4013 91.5094 50 91.5094C72.5987 91.5094 90.9186 73.1895 90.9186 50.5908C90.9186 27.9921 72.5987 9.67226 50 9.67226C27.4013 9.67226 9.08144 27.9921 9.08144 50.5908Z"
+    //           fill="currentColor"
+    //         />
+    //         <path
+    //           d="M93.9676 39.0409C96.393 38.4038 97.8624 35.9116 97.0079 33.5539C95.2932 28.8227 92.871 24.3692 89.8167 20.348C85.8452 15.1192 80.8826 10.7238 75.2124 7.41289C69.5422 4.10194 63.2754 1.94025 56.7698 1.05124C51.7666 0.367541 46.6976 0.446843 41.7345 1.27873C39.2613 1.69328 37.813 4.19778 38.4501 6.62326C39.0873 9.04874 41.5694 10.4717 44.0505 10.1071C47.8511 9.54855 51.7191 9.52689 55.5402 10.0491C60.8642 10.7766 65.9928 12.5457 70.6331 15.2552C75.2735 17.9648 79.3347 21.5619 82.5849 25.841C84.9175 28.9121 86.7997 32.2913 88.1811 35.8758C89.083 38.2158 91.5421 39.6781 93.9676 39.0409Z"
+    //           fill="currentFill"
+    //         />
+    //       </svg>
+    //     </div>
+    //   )}
+    //   {isSubmitting ? "SUBMITTING" : "SUBMIT"}
+    // </button>
+    // <div className="pt-1 h-[25px]">
+    //   {error && <div>{`Failed to RSVP: ${error}`}</div>}
+    //   {success && <div>{`Successfully RSVP'd`}</div>}
+    // </div>
     //           </div>
     //         </form>
     //       </div>

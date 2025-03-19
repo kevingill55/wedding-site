@@ -46,8 +46,8 @@ export const Details = () => {
         </div>
         <div className="pl-4 mt-2 border-secondary border-l">
           On Friday, November 7th, when you arrive to check in, please head
-          inside the inn (big white building) and to the lobby where us and the
-          staff at Foxfire will show you around and direct you to your room.
+          inside the inn (big white building) and to the lobby where we'll be
+          there to greet you and direct you to your room.
         </div>
         <div className="w-fit leading-4 text-black font-bold mt-10 pb-1">
           What is the dress code?
