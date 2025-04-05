@@ -22,6 +22,7 @@ export const Home = () => {
   useGSAP(() => {
     if (!skipHomeAnimation) {
       defaultTimeline
+        .set(titleRef.current, { opacity: 0 })
         .set(menuRef.current, { opacity: 0 })
         .set(picturesRef.current, { opacity: 0 })
         .set(subtitleRef.current, { opacity: 0 })

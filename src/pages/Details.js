@@ -28,8 +28,8 @@ export const Details = () => {
           Where will I stay?
         </div>
         <div className="pl-4 mt-2 border-secondary border-l">
-          Foxfire (the venue) has enough accommodations for the majority of our
-          guests and is where all the wedding activities will take place. One
+          Foxfire (the venue) has enough accommodations for all of our guests
+          and is where the entirety of the wedding will take place. One
           double-occupancy room will cost $700 for the weekend. This includes 2
           nights stay, all food and beverage, and lots of quality time with
           friends and family. If you stay at the venue you also won't have to
