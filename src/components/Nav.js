@@ -5,10 +5,10 @@ import { useNavigate, useMatch } from "react-router-dom";
 export const NavV2 = ({ titleRef, subtitleRef, menuRef }) => {
   const navigate = useNavigate();
   return (
-    <div className="max-w-[1000px] h-full flex items-end sm:justify-center w-full text-[#4b3832]">
+    <div className="max-w-[1000px] h-2/3 flex items-end sm:justify-center w-full text-[#9F4A3C]">
       <div className="flex sm:gap-28 w-full justify-between sm:justify-end px-[48px] items-center py-4 sm:h-full">
         <div
-          className="text-[#4b3832] flex justify-center flex-col items-center gap-1"
+          className="text-[#9F4A3C] flex justify-center flex-col items-center gap-1"
           ref={menuRef}
         >
           <div onClick={() => navigate("/schedule")} className="cursor-pointer">
@@ -24,11 +24,11 @@ export const NavV2 = ({ titleRef, subtitleRef, menuRef }) => {
         <div className="flex-col flex items-end justify-end">
           <div
             ref={titleRef}
-            className="text-[#6B3E26] text-5xl origin-bottom-right"
+            className="text-primary font-temp sm:text-5xl text-4xl origin-bottom-right"
           >
             Kaleigh <br /> & Kevin
           </div>
-          <div ref={subtitleRef} className="text-[#4b3832]">
+          <div ref={subtitleRef} className="text-[#9F4A3C]">
             November 7-9 2025
           </div>
         </div>
@@ -50,8 +50,8 @@ export const BasicNav = () => {
     [navigate]
   );
   return (
-    <div className="flex w-[90%] items-center fixed sm:justify-center justify-evenly sm:gap-28 gap-4 px-1 py-3 bg-accent">
-      <div className="flex text-secondary justify-center items-center gap-4">
+    <div className="flex w-full shadow-sm items-center fixed sm:justify-center justify-evenly sm:gap-28 gap-4 px-1 py-2 bg-accent">
+      <div className="flex text-primary justify-center items-center gap-4">
         <div
           onClick={async () => {
             onNavigate("/schedule");
@@ -88,7 +88,7 @@ export const BasicNav = () => {
         onClick={() => navigate("/", { state: { skipHomeAnimation: true } })}
         className="cursor-pointer flex-col flex items-end justify-center"
       >
-        <div className="leading-tight text-primary font-bold sm:text-2xl">
+        <div className="bg-blue-100 rounded-lg py-2 px-3 hover:bg-blue-200 leading-tight text-primary font-temp sm:text-2xl">
           Kaleigh & Kevin
         </div>
       </div>

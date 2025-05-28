@@ -98,14 +98,14 @@ export const RSVP = () => {
   return (
     <div className="w-full flex flex-col items-center">
       <BasicNav />
-      <div className="text-secondary sm:mt-[125px] mt-[75px] mb-12 sm:max-w-[900px] w-[85%] flex flex-col sm:flex-row sm:gap-10 items-center justify-center">
+      <div className="text-primary sm:mt-[125px] mt-[75px] mb-12 sm:max-w-[900px] w-[85%] flex flex-col sm:flex-row sm:gap-10 items-center justify-center">
         <div className="mb-6 flex flex-col sm:w-[70%]">
-          <div className="pb-1 mt-10 font-bold text-black w-fit leading-4">
+          <div className="pb-1 mt-10 font-temp w-fit leading-4">
             Enter your name
           </div>
-          <div className="pl-4 mt-2 border-secondary border-l">
+          <div className="pl-4 mt-2 border-primary border-l">
             <input
-              className="bg-gray-100 appearance-none border-2 border-secondary rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
+              className="bg-gray-100 appearance-none border border-primary rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
               id="enter-code-input"
               type="text"
               placeholder="Name"
@@ -113,10 +113,10 @@ export const RSVP = () => {
               value={name}
             />
           </div>
-          <div className="pb-1 mt-10 font-bold text-black w-fit leading-4">
+          <div className="pb-1 mt-10 font-temp w-fit leading-4">
             Will you attend the wedding weekend?
           </div>
-          <div className="pl-4 mt-2 border-secondary border-l">
+          <div className="pl-4 mt-2 border-primary border-l">
             <div className="flex gap-6">
               <RadioButton
                 setFunc={setAttend}
@@ -132,10 +132,10 @@ export const RSVP = () => {
               />
             </div>
           </div>
-          <div className="pb-1 mt-10 font-bold text-black w-fit leading-4">
+          <div className="pb-1 mt-10 font-temp w-fit leading-4">
             Will you stay at the venue?
           </div>
-          <div className="pl-4 mt-2 border-secondary border-l">
+          <div className="pl-4 mt-2 border-primary border-l">
             <div className="flex gap-6">
               <RadioButton
                 setFunc={setStay}
@@ -151,12 +151,12 @@ export const RSVP = () => {
               />
             </div>
           </div>
-          <div className="pb-1 mt-10 font-bold text-black w-fit leading-4">
+          <div className="pb-1 mt-10 font-temp w-fit leading-4">
             Notes (optional)
           </div>
-          <div className="pl-4 mt-2 border-secondary border-l">
+          <div className="pl-4 mt-2 border-primary border-l">
             <textarea
-              className="bg-gray-100 appearance-none border-2 border-secondary rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
+              className="bg-gray-100 appearance-none border border-primary rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white focus:border-primary"
               id="enter-code-input"
               type="text"
               maxLength={128}

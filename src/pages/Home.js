@@ -4,7 +4,7 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import { NavV2 } from "../components/Nav";
-import chair from "../images/chair.jpg";
+import hammock from "../images/hammock.jpeg";
 import fox from "../images/fox1.jpeg";
 
 gsap.registerPlugin(useGSAP);
@@ -42,34 +42,31 @@ export const Home = () => {
         )
         .to(titleRef.current, { y: 0, yPercent: 0 })
         .to(titleRef.current, { x: 0, xPercent: 0 })
-        .to([subtitleRef.current, menuRef.current], { opacity: 1 })
-        .to(picturesRef.current, { opacity: 1 });
+        .to([subtitleRef.current, picturesRef.current, menuRef.current], {
+          opacity: 1,
+        });
     }
   });
 
   return (
-    <div className="h-full w-full flex flex-col items-center sm:justify-start justify-between bg-[#FDF5C9]">
+    <div className="w-full h-full flex flex-col items-center sm:justify-start justify-between bg-accent">
       <div
+        className="flex-col sm:pt-20 sm:gap-8 gap-2 sm:flex-row flex"
         ref={picturesRef}
-        className="flex sm:max-w-[1000px] justify-center w-full flex-col sm:flex-row sm:gap-6 gap-1 sm:my-10 mt-6 sm:h-fit h-2/3"
       >
-        <div className="flex justify-center w-full">
-          <div className="bg-[#6B3E26] sm:p-3 p-2 w-fit sm:mb-0 mb-2">
-            <img
-              src={chair}
-              alt="fire"
-              className="sm:max-w-2xl sm:h-fit h-[220px]"
-            />
-          </div>
+        <div className="border-primary border-2 p-2 sm:p-4 bg-blue-200 w-fit">
+          <img
+            src={fox}
+            alt="fire"
+            className="sm:max-w-xl sm:h-[355px] h-[210px]"
+          />
         </div>
-        <div className="w-full justify-center flex">
-          <div className="bg-[#6B3E26] w-fit sm:p-3 p-2">
-            <img
-              src={fox}
-              alt="fox"
-              className="sm:max-w-2xl sm:h-fit h-[220px]"
-            />
-          </div>
+        <div className="border-primary border-2 p-2 sm:p-4 bg-blue-200 w-fit flex justify-center">
+          <img
+            src={hammock}
+            alt="hammock"
+            className="sm:max-w-xl sm:h-[355px] h-[210px]"
+          />
         </div>
       </div>
       <NavV2 menuRef={menuRef} subtitleRef={subtitleRef} titleRef={titleRef} />
