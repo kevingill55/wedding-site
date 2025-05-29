@@ -6,7 +6,7 @@ export const Details = () => {
   return (
     <div className="w-full flex flex-col items-center gap-10">
       <BasicNav />
-      <div className="text-primary sm:mt-[125px] mt-[75px] sm:max-w-[750px] w-[85%] mb-12 flex flex-col">
+      <div className="text-primary sm:mt-[145px] mt-[75px] sm:max-w-[750px] w-[85%] mb-12 flex flex-col">
         <div className="pb-1 font-bold  w-fit leading-4 font-temp">
           When and where is the wedding?
         </div>

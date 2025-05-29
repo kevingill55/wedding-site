@@ -1,13 +1,12 @@
 import React from "react";
 import { BasicNav } from "../components/Nav";
-// import hammock from "../images/hammock.jpeg";
-// import kk from "../images/kk.jpeg";
+import fox4 from "../images/fox4.jpeg";
 
 export const Schedule = () => {
   return (
-    <div className="w-full flex flex-col items-center">
+    <div className="w-full flex flex-col h-full items-center">
       <BasicNav />
-      <div className="text-primary sm:mt-[125px] mt-[75px] mb-12 sm:max-w-[900px] w-[85%] flex flex-col sm:flex-row sm:gap-10 items-center justify-center">
+      <div className="h-full text-primary sm:mt-[145px] mt-[75px] mb-12 sm:max-w-[900px] w-[85%] flex flex-col sm:flex-row sm:gap-16 items-center sm:items-start justify-between sm:justify-center">
         <div className="mb-6 flex flex-col">
           <div className="pb-1 font-temp w-fit leading-4">
             Friday • November 7
@@ -32,14 +31,15 @@ export const Schedule = () => {
             <div>11:00 AM — checkout</div>
           </div>
         </div>
-        {/* <div className="flex flex-col gap-4 sm:w-1/2  ">
-          <div className="bg-primary p-3 flex justify-center">
-            <img src={hammock} alt="hammock" />
+        <div>
+          <div className="border-primary border-2 p-2 sm:p-4 bg-blue-200 w-fit">
+            <img
+              src={fox4}
+              alt="fire4"
+              className="sm:max-w-xl sm:h-[350px] h-[215px]"
+            />
           </div>
-          <div className="bg-primary p-3 flex justify-center">
-            <img src={kk} alt="kk" />
-          </div>
-        </div> */}
+        </div>
       </div>
     </div>
   );

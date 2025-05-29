@@ -5,8 +5,8 @@ import { useNavigate, useMatch } from "react-router-dom";
 export const NavV2 = ({ titleRef, subtitleRef, menuRef }) => {
   const navigate = useNavigate();
   return (
-    <div className="max-w-[1000px] h-2/3 flex items-end sm:justify-center w-full text-[#9F4A3C]">
-      <div className="flex sm:gap-28 w-full justify-between sm:justify-end px-[48px] items-center py-4 sm:h-full">
+    <div className="max-w-[1000px] h-1/3 sm:h-2/3 flex items-end sm:justify-center w-full text-[#9F4A3C]">
+      <div className="flex sm:gap-28 w-full gap-20 justify-end px-[48px] items-center py-4 sm:h-full">
         <div
           className="text-[#9F4A3C] flex justify-center flex-col items-center gap-1"
           ref={menuRef}

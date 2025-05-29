@@ -15,7 +15,7 @@ export const Home = () => {
   const picturesRef = useRef();
   const menuRef = useRef();
   const { state } = useLocation();
-  const skipHomeAnimation = state?.skipHomeAnimation ?? false;
+  const skipHomeAnimation = state?.skipHomeAnimation ?? true;
 
   const defaultTimeline = gsap.timeline({ defaults: { duration: 1.5 } });
 
@@ -51,7 +51,7 @@ export const Home = () => {
   return (
     <div className="w-full h-full flex flex-col items-center sm:justify-start justify-between bg-accent">
       <div
-        className="flex-col sm:pt-20 sm:gap-8 gap-2 sm:flex-row flex"
+        className="flex-col sm:pt-20 sm:gap-8 gap-2 h-full sm:h-fit sm:flex-row flex justify-center items-center"
         ref={picturesRef}
       >
         <div className="border-primary border-2 p-2 sm:p-4 bg-blue-200 w-fit">
@@ -65,7 +65,7 @@ export const Home = () => {
           <img
             src={hammock}
             alt="hammock"
-            className="sm:max-w-xl sm:h-[355px] h-[210px]"
+            className="sm:max-w-xl sm:h-[355px] h-[211px]"
           />
         </div>
       </div>
