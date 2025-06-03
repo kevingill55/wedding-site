@@ -1,6 +1,5 @@
 import React from "react";
 import { BasicNav } from "../components/Nav";
-import fox4 from "../images/fox4.jpeg";
 
 export const Schedule = () => {
   return (
@@ -34,7 +33,7 @@ export const Schedule = () => {
         <div>
           <div className="border-primary border-2 p-2 sm:p-4 bg-blue-200 w-fit">
             <img
-              src={fox4}
+              src="/images/fox4.jpeg"
               alt="fire4"
               className="sm:max-w-xl sm:h-[350px] h-[215px]"
             />

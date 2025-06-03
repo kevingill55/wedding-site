@@ -4,8 +4,6 @@ import gsap from "gsap";
 import { useGSAP } from "@gsap/react";
 
 import { NavV2 } from "../components/Nav";
-import hammock from "../images/hammock.jpeg";
-import fox from "../images/fox1.jpeg";
 
 gsap.registerPlugin(useGSAP);
 
@@ -56,14 +54,14 @@ export const Home = () => {
       >
         <div className="border-primary border-2 p-2 sm:p-4 bg-blue-200 w-fit">
           <img
-            src={fox}
+            src="/images/fox1.jpeg"
             alt="fire"
             className="sm:max-w-xl sm:h-[355px] h-[210px]"
           />
         </div>
         <div className="border-primary border-2 p-2 sm:p-4 bg-blue-200 w-fit flex justify-center">
           <img
-            src={hammock}
+            src="/images/hammock.jpeg"
             alt="hammock"
             className="sm:max-w-xl sm:h-[355px] h-[211px]"
           />
