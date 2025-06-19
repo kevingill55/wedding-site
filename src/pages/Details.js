@@ -33,9 +33,8 @@ export const Details = () => {
           will cost $700 for the weekend. This includes 2 nights stay, all food
           and beverage, and lots of quality time with friends and family. We
           have reserved the entire property for the weekend and would encourage
-          everyone to stay at the venue if possible. If you have a strong desire
-          to stay elsewhere please let us know as soon as possible! <br />{" "}
-          <br />
+          everyone to stay at the venue. If you have a strong desire to stay
+          elsewhere please let us know as soon as possible! <br /> <br />
           Once we have a final headcount, we will give the venue our guest list
           and room assignments and they will send you an invoice for the room.
           So, if you RSVP that you are attending and plan to stay at the venue,
