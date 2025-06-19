@@ -31,9 +31,11 @@ export const Details = () => {
           The venue has enough accommodations for all of our guests and is where
           the entirety of the wedding will take place. One double-occupancy room
           will cost $700 for the weekend. This includes 2 nights stay, all food
-          and beverage, and lots of quality time with friends and family. If you
-          have a strong desire to stay off property please let us know as soon
-          as possible! <br /> <br />
+          and beverage, and lots of quality time with friends and family. We
+          have reserved the entire property for the weekend and would encourage
+          everyone to stay at the venue if possible. If you have a strong desire
+          to stay off property please let us know as soon as possible! <br />{" "}
+          <br />
           Once we have a final headcount, we will give the venue our guest list
           and room assignments and they will send you an invoice for the room.
           So, if you RSVP that you are attending and plan to stay at the venue,
