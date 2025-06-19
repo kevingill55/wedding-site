@@ -34,7 +34,7 @@ export const Details = () => {
           and beverage, and lots of quality time with friends and family. We
           have reserved the entire property for the weekend and would encourage
           everyone to stay at the venue if possible. If you have a strong desire
-          to stay off property please let us know as soon as possible! <br />{" "}
+          to stay elsewhere please let us know as soon as possible! <br />{" "}
           <br />
           Once we have a final headcount, we will give the venue our guest list
           and room assignments and they will send you an invoice for the room.
