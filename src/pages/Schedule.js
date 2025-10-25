@@ -20,7 +20,7 @@ export const Schedule = () => {
           <div className="pl-4 mt-2 border-primary border-l">
             <div>8:00-10:00 AM — breakfast</div>
             <div>12:00-1:30 PM — lunch</div>
-            <div>4:30 PM — ceremony & reception</div>
+            <div>4:00 PM — ceremony & reception</div>
           </div>
           <div className="pb-1 mt-10 font-temp w-fit leading-4">
             Sunday • November 9

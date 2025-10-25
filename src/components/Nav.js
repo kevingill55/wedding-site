@@ -2,6 +2,9 @@
 import React, { useCallback } from "react";
 import { useNavigate, useMatch } from "react-router-dom";
 
+const REGISTRY_LINK =
+  "https://www.myregistry.com/wishlist/kevin-gill-denver-co/5067936";
+
 export const NavV2 = ({ titleRef, subtitleRef, menuRef }) => {
   const navigate = useNavigate();
   return (
@@ -17,8 +20,11 @@ export const NavV2 = ({ titleRef, subtitleRef, menuRef }) => {
           <div onClick={() => navigate("/details")} className="cursor-pointer">
             Details
           </div>
-          <div onClick={() => navigate("/rsvp")} className="cursor-pointer">
-            RSVP
+          <div
+            onClick={() => window.open(REGISTRY_LINK, "_blank")}
+            className="cursor-pointer"
+          >
+            Registry
           </div>
         </div>
         <div className="flex-col flex items-end justify-end">
@@ -74,14 +80,12 @@ export const BasicNav = () => {
         </div>
 
         <div
-          onClick={() => {
-            onNavigate("/rsvp");
-          }}
+          onClick={() => window.open(REGISTRY_LINK, "_blank")}
           className={`${
             rsvpActive && `underline`
           } sm:text-base text-sm cursor-pointer`}
         >
-          RSVP
+          Registry
         </div>
       </div>
       <div
